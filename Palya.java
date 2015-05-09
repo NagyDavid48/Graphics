@@ -1,4 +1,4 @@
-package Prototype;
+package Graphics;
 
 import java.util.ArrayList;
 import java.util.Random;

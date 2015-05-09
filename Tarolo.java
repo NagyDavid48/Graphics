@@ -1,4 +1,4 @@
-package Prototype;
+package Graphics;
 
 public class Tarolo {
 

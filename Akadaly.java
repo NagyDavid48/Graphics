@@ -1,4 +1,4 @@
-package Prototype;
+package Graphics;
 
 import java.io.PrintWriter;
 
