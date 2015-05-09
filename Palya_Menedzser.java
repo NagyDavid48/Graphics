@@ -1,6 +1,8 @@
 package Graphics;
 
-public class Palya_Menedzser {
+import javax.swing.event.MouseInputAdapter;
+
+public class Palya_Menedzser extends MouseInputAdapter{
 
 	private int kor = 10;//Ennyi a max korok szama
 	private int olajkeszlet = 0;//Ennyi olaja lesz egy robotnak
@@ -8,7 +10,7 @@ public class Palya_Menedzser {
 	public Palya palya;//A keret el tudja hívni a pálya fv-it.
 	private int robotszam = 0;//Ennyi robot lesz a pályán
 	private int robocntr=0; //Ennyi robot lepett a körben
-	//private int[] cntr;//Ez számolja hanyszor volt cp kioszt vagy hoztak letre robotot
+	private int[] cntr;//Ez számolja hanyszor volt cp kioszt vagy hoztak letre robotot
 	
 
 	private boolean isVege = false;
@@ -28,7 +30,7 @@ public class Palya_Menedzser {
 		this.olajkeszlet = olaj;
 		this.robotszam = robotszam;
 		this.robocntr = 0;
-		//this.cntr = new int[]{0, 0};//0. a cp. 1. kisrobot
+		this.cntr = new int[]{0, 0};//0. a cp. 1. kisrobot
 		this.palya = palyaLetreHoz(magassag, szelesseg);
 	}
 	
@@ -57,17 +59,17 @@ public class Palya_Menedzser {
 			if (robocntr == robotszam) // ha minden robot lépett
 			{
 				kor--;
-//				for(int i = 0; i<cntr.length; ++i)
-//					cntr[i]++;
+				for(int i = 0; i<cntr.length; ++i)
+					cntr[i]++;
 				if(kor>0){//Megy a jatek
-//					if(cntr[0] == 4){//Minden negyedik kor vegen kiosztjuk a cp-ket.
-//						palya.cpKioszt();
-//						cntr[0] = 0;
-//				}
-//					if(cntr[1] == 5){//Lasd szekvencia
-//						palya.kisrobotLetrehoz();//Release the MiniRobots!
-//						cntr[1] = 0;
-//				}
+					if(cntr[0] == 4){//Minden negyedik kor vegen kiosztjuk a cp-ket.
+						palya.cpKioszt();
+						cntr[0] = 0;
+				}
+					if(cntr[1] == 5){//Lasd szekvencia
+						palya.kisrobotLetrehoz();//Release the MiniRobots!
+						cntr[1] = 0;
+				}
 					palya.oregit();//Olaj szaradasa
 				}else{//Itt van vege a jateknak.
 					palya.gyoztesValaszt();
@@ -75,7 +77,17 @@ public class Palya_Menedzser {
 				}
 			}
 		}
-//		palya.oregit();
+		palya.oregit();
+	}
+	
+	public void mouseClicked() {
+		// TODO - implement Palya_Menedzser.mouseClicked
+		throw new UnsupportedOperationException();
+	}
+
+	public void mouseDragged() {
+		// TODO - implement Palya_Menedzser.mouseDragged
+		throw new UnsupportedOperationException();
 	}
 
 	/**
