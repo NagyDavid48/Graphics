@@ -10,9 +10,7 @@ public class View {
 	protected JPanel panel;
 
 	public void rajzolAll() {
-		for (RajzolAble item : rajzolAbles) {
-			item.rajzol();
-		}
+		
 	}
 
 }
