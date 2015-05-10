@@ -2,8 +2,11 @@ package Graphics;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
+import java.awt.Graphics;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 import java.util.Locale;
 
 import javax.swing.*;
@@ -52,6 +55,9 @@ public class Window extends JFrame {
 		beallitasokGomb.setActionCommand("options");
 		kilepesGomb.setActionCommand("exit");
 		
+
+		Image kep = this.getToolkit().getImage("oil.jpg");
+		kep.getGraphics().drawImage(kep, 0, 0, this);
 	}
 
 	public void megjelenites() {
