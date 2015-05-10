@@ -19,6 +19,8 @@ import javax.swing.JPanel;
 public class Menu {
 
 	protected JPanel panel;
+	protected Beallitasok beallit;
+	protected JPanel szoveg;
 	
 	public Menu(){
 		panel = new JPanel();
@@ -42,7 +44,7 @@ public class Menu {
 		oldalsav.setPreferredSize(new Dimension(100, 600));
 		oldalsav.setMaximumSize(new Dimension(100, 600));
 		
-		JPanel szoveg = new JPanel();
+		szoveg = new JPanel();
 		szoveg.setSize(new Dimension(100, 500));
 		szoveg.setPreferredSize(new Dimension(100, 520));
 		szoveg.setMaximumSize(new Dimension(100, 520));
@@ -78,7 +80,7 @@ public class Menu {
 	}
 
 	public void beallítasok() {
-		Beallitasok beallit = new Beallitasok();
+		beallit = new Beallitasok();
 	}
 
 	public void kilepes() {
