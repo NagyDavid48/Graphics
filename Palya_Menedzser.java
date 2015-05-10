@@ -1,5 +1,7 @@
 package Graphics;
 
+import java.awt.event.MouseEvent;
+
 import javax.swing.event.MouseInputAdapter;
 
 public class Palya_Menedzser extends MouseInputAdapter{
@@ -81,14 +83,26 @@ public class Palya_Menedzser extends MouseInputAdapter{
 		palya.oregit();
 	}
 	
-	public void mouseClicked() {
-		// TODO - implement Palya_Menedzser.mouseClicked
-		throw new UnsupportedOperationException();
+	/**
+	 * A pályán kattintanak.
+	 */
+	public void mouseClicked(MouseEvent e) {
+		Vektor egerPoz = new Vektor(e.getX(), e.getY());//Csak robot léptetéskor kattintunk.
+		palya.vektorFeldolgoz(egerPoz);
 	}
 
-	public void mouseDragged() {
-		// TODO - implement Palya_Menedzser.mouseDragged
-		throw new UnsupportedOperationException();
+	/**
+	 * Ha egy robot lépne, akkor egy egység vektor rajzolódik ki és az megy kõrbe a robot körül.
+	 */
+	public void mouseDragged(MouseEvent e) {
+		Vektor egerPoz = new Vektor(e.getX(), e.getY());
+		
+		if(egerPoz.getX() > 20)
+			egerPoz.setX(20);
+		if(egerPoz.getY() > 20)
+			egerPoz.setY(20);
+		
+		
 	}
 
 	/**
