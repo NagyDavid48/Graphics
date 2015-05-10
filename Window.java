@@ -62,12 +62,16 @@ public class Window extends JFrame {
 
 		@Override
 		public void actionPerformed(ActionEvent arg) {
-			if(arg.getActionCommand().equals("newgame"))
+			if(arg.getActionCommand().equals("newgame")){
+				Window.this.setVisible(false);
 				menu.ujJatek();
-			else if(arg.getActionCommand().equals("options"))
+			}
+			else if(arg.getActionCommand().equals("options")){
 				menu.beallítasok();
-			else if(arg.getActionCommand().equals("exit"))
+			}
+			else if(arg.getActionCommand().equals("exit")){
 				menu.kilepes();
+			}
 		}
 		
 	}
