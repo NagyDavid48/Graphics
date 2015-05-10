@@ -13,6 +13,11 @@ import java.util.ArrayList;
 public class Keret {
 	public static void main(String [] args)
 	{
+		
+		Window ablak= new Window();
+		
+		ablak.megjelenites();
+		
 		Command cmd = new Command();
 		String infile = "teszt27_input.txt";
 		String outfile = "output.txt";

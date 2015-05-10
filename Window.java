@@ -11,12 +11,10 @@ import javax.swing.*;
 public class Window extends JFrame {
 
 	protected View view;
-	private Palya_Menedzser palya_Menedzser;
 	private Menu menu;
 	
 	Window(){
 		view=new View();
-		palya_Menedzser=new Palya_Menedzser();
 		menu = new Menu();
 		
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -42,7 +40,6 @@ public class Window extends JFrame {
 		centerPanel.add(beallitasokGomb);
 		centerPanel.add(kilepesGomb);
 		
-		
 		ujJatekGomb.setPreferredSize(new Dimension(80, 25));
 		beallitasokGomb.setPreferredSize(new Dimension(100, 25));
 		kilepesGomb.setPreferredSize(new Dimension(80, 25));
@@ -55,19 +52,16 @@ public class Window extends JFrame {
 		beallitasokGomb.setActionCommand("options");
 		kilepesGomb.setActionCommand("exit");
 		
-		//this.pack();
 	}
 
 	public void megjelenites() {
-		// TODO - implement Window.megjelenites
-		throw new UnsupportedOperationException();
+		this.setVisible(true);
 	}
 
 	private class MenuGombListener implements ActionListener{
 
 		@Override
 		public void actionPerformed(ActionEvent arg) {
-			// TODO Auto-generated method stub
 			if(arg.getActionCommand().equals("newgame"))
 				menu.ujJatek();
 			else if(arg.getActionCommand().equals("options"))
