@@ -1,5 +1,6 @@
 package Graphics;
 
+import java.awt.Graphics;
 import java.awt.Image;
 import java.io.File;
 import java.io.IOException;
@@ -17,7 +18,7 @@ public class GRagacs implements RajzolAble {
 		kep = ImageIO.read(new File("Kepek/glue.jpg"));
 	}
 	
-	public void rajzol() {
+	public void rajzol(Graphics g) {
 		// TODO - implement GRagacs.rajzol
 		throw new UnsupportedOperationException();
 	}
