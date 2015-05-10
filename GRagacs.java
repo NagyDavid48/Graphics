@@ -20,7 +20,7 @@ public class GRagacs implements RajzolAble {
 		kep = ImageIO.read(new File("glue.jpg"));
 	}
 	
-	public void rajzol() {
+	public void rajzol(Graphics g) {
 		// TODO - implement GRagacs.rajzol
 		if(ragacs.getElet()==0)
 			return;

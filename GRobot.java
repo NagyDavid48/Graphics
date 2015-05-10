@@ -1,5 +1,7 @@
 package Graphics;
 
+import java.awt.Color;
+import java.awt.Graphics;
 import java.awt.Image;
 import java.io.File;
 import java.io.IOException;
@@ -16,9 +18,8 @@ public class GRobot implements RajzolAble {
 		kep = ImageIO.read(new File("Kepek/robot.jpg"));
 	}
 	
-	public void rajzol() {
-		// TODO - implement GRobot.rajzol
-		throw new UnsupportedOperationException();
+	public void rajzol(Graphics g) {
+		g.drawImage(kep, 200, 200, null);
 	}
 
 	/**

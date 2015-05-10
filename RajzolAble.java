@@ -1,7 +1,9 @@
 package Graphics;
 
+import java.awt.Graphics;
+
 public interface RajzolAble {
 
-	abstract void rajzol();
+	abstract void rajzol(Graphics g);
 
 }

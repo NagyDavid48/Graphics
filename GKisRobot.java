@@ -1,5 +1,6 @@
 package Graphics;
 
+import java.awt.Graphics;
 import java.awt.Image;
 import java.io.File;
 import java.io.IOException;
@@ -17,7 +18,7 @@ public class GKisRobot implements RajzolAble {
 		img = ImageIO.read(new File("Kepek/Cleaner_robot.jpg"));
 	}
 	
-	public void rajzol() {
+	public void rajzol(Graphics g) {
 		// TODO - implement GKisRobot.rajzol
 		throw new UnsupportedOperationException();
 	}

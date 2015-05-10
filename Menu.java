@@ -23,7 +23,7 @@ public class Menu {
 	protected JPanel szoveg;
 	
 	public Menu(){
-		panel = new JPanel();
+		panel = new View();
 		panel.setSize(new Dimension(900, 600));
 		panel.setPreferredSize(new Dimension(900, 600));
 		panel.setMaximumSize(new Dimension(900, 600));
