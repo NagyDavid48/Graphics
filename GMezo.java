@@ -1,6 +1,9 @@
 package Graphics;
 
 import java.awt.Image;
+import java.io.File;
+
+import javax.imageio.ImageIO;
 
 public class GMezo {
 
@@ -8,6 +11,9 @@ public class GMezo {
 	protected int z;
 	protected Mezo mezo;
 
+	GMezo(){
+	}
+	
 	public void rajzol() {
 		// TODO - implement GMezo.rajzol
 		throw new UnsupportedOperationException();
