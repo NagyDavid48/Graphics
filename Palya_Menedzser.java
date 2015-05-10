@@ -12,6 +12,7 @@ public class Palya_Menedzser extends MouseInputAdapter{
 	private int robocntr=0; //Ennyi robot lepett a körben
 	private int[] cntr;//Ez számolja hanyszor volt cp kioszt vagy hoztak letre robotot
 	
+	private View view;
 
 	private boolean isVege = false;
 
