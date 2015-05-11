@@ -17,7 +17,16 @@ public class GMezo implements RajzolAble{
 
 	@Override
 	public void rajzol(Graphics g) {
-			if(mezo.getPalyaszakasz()){
+		if(mezo.getCheckpoint()){
+			try {
+				kep=ImageIO.read(new File("checkpoint.jpg"));
+			} catch (IOException e) {
+				e.printStackTrace();
+				System.out.println("Hiba történt a kép beolvasása folyamán"+e.toString());
+			}
+			g.drawImage(kep, 200, 200, null);
+		}
+		else if(mezo.getPalyaszakasz()){
 				try {
 					kep = ImageIO.read(new File("Normal.jpg"));
 					g.drawImage(kep, 200, 200, null);
@@ -27,7 +36,7 @@ public class GMezo implements RajzolAble{
 				}
 			}else{
 				try {
-					kep = ImageIO.read(new File("Normal.jpg"));
+					kep = ImageIO.read(new File("hole.jpg"));
 					g.drawImage(kep, 200, 200, null);
 				} catch (IOException e) {
 					e.printStackTrace();

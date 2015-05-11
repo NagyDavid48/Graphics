@@ -22,9 +22,12 @@ public class GRobot implements RajzolAble {
 	}
 	
 	public void rajzol(Graphics g) {
-		//if(robot.getMezo().getPoziciovektor().getX()!=x || robot.getMezo().getPoziciovektor().getY()!=y)
-			g.drawImage(kep, 200, 200, null);
-			//g.drawImage(kep, x, y, null);
+	
+		for(int i=0; i<200; i+=50){
+			g.drawImage(kep, i, 50, null);
+			try {Thread.sleep(80);} catch (InterruptedException e) {}//Így is lehet. Mást nem módosítottam.
+	}
+		g.drawImage(kep, 200,200, null);
 	}
 
 	/**
