@@ -118,7 +118,7 @@ public class Palya {
 		
 		if (robotok.size() > 0){
 			System.out.println(robotok.get(soronlevo).toString());
-			System.out.println("honnan "+robotok.get(soronlevo).getMezo().toString());
+			//System.out.println("honnan "+robotok.get(soronlevo).getMezo().toString());
 			robotLeptet(robotok.get(soronlevo),v);	
 //			System.out.println("hova "+robotok.get(soronlevo).getMezo().toString());
 		}
