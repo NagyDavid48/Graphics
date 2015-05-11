@@ -320,6 +320,9 @@ public class Palya {
 	 */
 	//kész
 	public void olajLerak(Robot r) {
+		if(soronlevo >= robotok.size())
+			soronlevo = 0;
+		
 		r.olajLerak();
 		try {
 			if(r.getMezo().getAkadaly()!=null){
@@ -332,6 +335,8 @@ public class Palya {
 			e1.printStackTrace();
 		}
 		robotLeptet(r, new Vektor(0,0));
+		if(soronlevo == robotok.size())
+			soronlevo = 0;
 	}
 
 	/**
@@ -340,6 +345,8 @@ public class Palya {
 	 */
 	//kész
 	public void ragacsLerak(Robot r) {
+		if(soronlevo >= robotok.size())
+			soronlevo = 0;
 		r.ragacsLerak();
 		try {
 			if(r.getMezo().getAkadaly()!=null){
@@ -352,6 +359,8 @@ public class Palya {
 			e1.printStackTrace();
 		}
 		robotLeptet(r, new Vektor(0,0));
+		if(soronlevo == robotok.size())
+			soronlevo = 0;
 	}
 
 	public int gyoztesValaszt() {
