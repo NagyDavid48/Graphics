@@ -36,13 +36,12 @@ public class Palya_Menedzser extends MouseInputAdapter{
 		this.cntr = new int[]{0, 0};//0. a cp. 1. kisrobot
 		this.palya = palyaLetreHoz(magassag, szelesseg);
 		this.view = new View();
-		
 	}
 	
 	public Palya_Menedzser(){}
 	
 	public Palya palyaLetreHoz(int magassag, int szelesseg){
-		return new Palya(magassag, szelesseg, robotszam, olajkeszlet, ragacskeszlet);
+		return new Palya(magassag, szelesseg,robotszam, olajkeszlet, ragacskeszlet);
 	}
 	
 	//Valahogy meg kell oldani az inputok feldolgozasat. - Megbeszeles.

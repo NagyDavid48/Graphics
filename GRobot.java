@@ -24,7 +24,6 @@ public class GRobot implements RajzolAble {
 	public void rajzol(Graphics g) {
 		//if(robot.getMezo().getPoziciovektor().getX()!=x || robot.getMezo().getPoziciovektor().getY()!=y)
 			g.drawImage(kep, 200, 200, null);
-			//g.drawImage(kep, x, y, null);
 	}
 
 	/**
