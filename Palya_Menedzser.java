@@ -1,13 +1,15 @@
 package Graphics;
 
 import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.io.IOException;
 
 import javax.swing.JPanel;
 import javax.swing.event.MouseInputAdapter;
 
-public class Palya_Menedzser extends MouseInputAdapter{
+public class Palya_Menedzser extends MouseInputAdapter implements ActionListener{
 
 	private int kor = 10;//Ennyi a max korok szama
 	private int olajkeszlet = 0;//Ennyi olaja lesz egy robotnak
@@ -60,8 +62,7 @@ public class Palya_Menedzser extends MouseInputAdapter{
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
-			}
-			
+			}	
 		}
 		
 
@@ -190,5 +191,15 @@ public class Palya_Menedzser extends MouseInputAdapter{
 	 */
 	public int getRobotszam() {
 		return robotszam;
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent arg0) {
+		if(arg0.getActionCommand().equals("oil")){
+			palya.robotok.get(robocntr).olajLerak();
+		}
+		else if(arg0.getActionCommand().equals("glue")){
+			palya.robotok.get(robocntr).ragacsLerak();
+		}
 	}
 }
