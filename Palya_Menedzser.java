@@ -118,6 +118,7 @@ public class Palya_Menedzser extends MouseInputAdapter implements ActionListener
 	 * A pályán kattintanak.
 	 */
 	public void mouseClicked(MouseEvent e) {
+		try{
 		if(!isVege){
 			if(!palya.robotok.get(robocntr).getKiesett()){
 			System.out.println("ololo");
@@ -137,7 +138,8 @@ public class Palya_Menedzser extends MouseInputAdapter implements ActionListener
 				view.repaint();
 			}
 		}
-	}
+		}catch(Exception ex){}
+}
 	
 	public void mouseMoved(MouseEvent e) {
 		try{	
