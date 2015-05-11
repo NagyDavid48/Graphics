@@ -118,7 +118,6 @@ public class Palya_Menedzser extends MouseInputAdapter implements ActionListener
 	 * A pályán kattintanak.
 	 */
 	public void mouseClicked(MouseEvent e) {
-<<<<<<< HEAD
 		if(!isVege){
 			if(!palya.robotok.get(robocntr).getKiesett()){
 			System.out.println("ololo");
@@ -137,7 +136,6 @@ public class Palya_Menedzser extends MouseInputAdapter implements ActionListener
 				palya.vektorFeldolgoz(new Vektor());
 				view.repaint();
 			}
-=======
 		try{
 		System.out.println("ololo");
 		int i=palya.robotok.get(palya.getSoronlevo()).getMezo().getPoziciovektor().getY()*2;
@@ -152,13 +150,11 @@ public class Palya_Menedzser extends MouseInputAdapter implements ActionListener
 		view.repaint();
 		view.repaint();
 		}catch(Exception ex){
-			
->>>>>>> 4083fa95fc6752b7fefd07fc484665a901258dbb
+		}
 		}
 	}
 	
 	public void mouseMoved(MouseEvent e) {
-<<<<<<< HEAD
 		if(!isVege){
 			if(!palya.robotok.get(palya.getSoronlevo()).getKiesett()){
 				int i=palya.robotok.get(palya.getSoronlevo()).getMezo().getPoziciovektor().getY()*2;
@@ -175,7 +171,6 @@ public class Palya_Menedzser extends MouseInputAdapter implements ActionListener
 				view.repaint();
 			}
 	 }
-=======
 		try{
 		int i=palya.robotok.get(palya.getSoronlevo()).getMezo().getPoziciovektor().getY()*2;
 		int j=palya.robotok.get(palya.getSoronlevo()).getMezo().getPoziciovektor().getX()*2;
@@ -189,7 +184,6 @@ public class Palya_Menedzser extends MouseInputAdapter implements ActionListener
 		}catch(Exception ex){
 			
 		}
->>>>>>> 4083fa95fc6752b7fefd07fc484665a901258dbb
 	}
 
 
