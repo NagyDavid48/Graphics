@@ -10,17 +10,21 @@ import javax.imageio.ImageIO;
 public class GOlaj implements RajzolAble {
 
 	protected Image kep;
+	int x;
+	int y;
 	protected Olajfolt olaj;
 
 	
-	GOlaj() throws IOException{
+	GOlaj(int x, int y) throws IOException{
 		kep = ImageIO.read(new File("Kepek/oil.gif"));
+		this.x=x;
+		this.y=y;
 	}
 	
 	public void rajzol(Graphics g) {
 		// TODO - implement GOlaj.rajzol
 		if(olaj.getElet()!=0)
-			g.drawImage(kep, 0, 0, null);
+			g.drawImage(kep, x, y, null);
 	}
 
 	/**

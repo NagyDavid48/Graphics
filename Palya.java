@@ -34,6 +34,7 @@ public class Palya {
 		this.szelesseg = szelesseg;
 		this.soronlevo = 0;
 		this.view = view;
+		System.out.println(this.view.toString());
 		
 		//hogyan állítsuk be a mezõk specialításait akadály, robot, cp, szakadek 
 		//Egyelõre meredt úgy hogy sima mezõket hoz létre nincs rajta semmi és nem szakadék
@@ -77,9 +78,17 @@ public class Palya {
 			int f = rnd.nextInt(szelesseg);
 			
 			//max 4 Olajfolt elhelyezése
-			if(t.mezok[a][b].getPalyaszakasz())
+			if(t.mezok[a][b].getPalyaszakasz()){
 				t.mezok[a][b].setAkadaly(new Olajfolt());
-
+				try {
+					GOlaj go = new GOlaj(t.mezok[a][b].getPoziciovektor().getY()*2, t.mezok[a][b].getPoziciovektor().getX()*2);
+					go.olaj = (Olajfolt) t.mezok[a][b].getAkadaly();
+					this.view.addElment(go);
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			}
 			//max 4 Ragacs elhelyezése
 			if(t.mezok[c][d].getPalyaszakasz())
 				t.mezok[c][d].setAkadaly(new Ragacs());
