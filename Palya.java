@@ -324,12 +324,12 @@ public class Palya {
 		try {
 			GOlaj go = new GOlaj(r.getMezo().getPoziciovektor().getY()*2, r.getMezo().getPoziciovektor().getX()*2);
 			go.olaj = (Olajfolt) r.getMezo().getAkadaly();
-			this.view.addElment(go);
+			view.addElment(go);
 		} catch (IOException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
-		soronlevo++;
+		robotLeptet(r, new Vektor(0,0));
 	}
 
 	/**
@@ -347,7 +347,7 @@ public class Palya {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
-		soronlevo++;
+		robotLeptet(r, new Vektor(0,0));
 	}
 
 	public int gyoztesValaszt() {
