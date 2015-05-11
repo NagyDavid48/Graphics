@@ -42,7 +42,7 @@ public class Palya_Menedzser extends MouseInputAdapter{
 	public Palya_Menedzser(){}
 	
 	public Palya palyaLetreHoz(int magassag, int szelesseg){
-		return new Palya(magassag, szelesseg,robotszam, olajkeszlet, ragacskeszlet);
+		return new Palya(magassag, szelesseg, robotszam, olajkeszlet, ragacskeszlet);
 	}
 	
 	//Valahogy meg kell oldani az inputok feldolgozasat. - Megbeszeles.

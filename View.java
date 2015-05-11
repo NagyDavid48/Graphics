@@ -10,6 +10,14 @@ public class View extends JPanel {
 
 	private ArrayList<RajzolAble> rajzolAbles;
 
+	public View(){
+		rajzolAbles = new ArrayList<RajzolAble>();
+	}
+	
+	public void addElment(RajzolAble element){
+		rajzolAbles.add(element);
+	}
+	
 	/**
 	 * Kirajzolja ajáték elemeit. Mezõket, robototkat, stb.
 	 */
