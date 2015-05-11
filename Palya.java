@@ -322,21 +322,22 @@ public class Palya {
 	public void olajLerak(Robot r) {
 		if(soronlevo >= robotok.size())
 			soronlevo = 0;
-		
-		r.olajLerak();
-		try {
-			if(r.getMezo().getAkadaly()!=null){
-				GOlaj go = new GOlaj(r.getMezo().getPoziciovektor().getY()*2, r.getMezo().getPoziciovektor().getX()*2);
-				go.olaj = (Olajfolt) r.getMezo().getAkadaly();
-				view.addElment(go);
+		if(!r.getKiesett()){
+			r.olajLerak();
+			try {
+				if(r.getMezo().getAkadaly()!=null){
+					GOlaj go = new GOlaj(r.getMezo().getPoziciovektor().getY()*2, r.getMezo().getPoziciovektor().getX()*2);
+					go.olaj = (Olajfolt) r.getMezo().getAkadaly();
+					view.addElment(go);
+				}
+			} catch (IOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
 			}
-		} catch (IOException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
+			robotLeptet(r, new Vektor(0,0));
+			if(soronlevo == robotok.size())
+				soronlevo = 0;
 		}
-		robotLeptet(r, new Vektor(0,0));
-		if(soronlevo == robotok.size())
-			soronlevo = 0;
 	}
 
 	/**
@@ -347,20 +348,22 @@ public class Palya {
 	public void ragacsLerak(Robot r) {
 		if(soronlevo >= robotok.size())
 			soronlevo = 0;
-		r.ragacsLerak();
-		try {
-			if(r.getMezo().getAkadaly()!=null){
-				GRagacs ra = new GRagacs(r.getMezo().getPoziciovektor().getY()*2, r.getMezo().getPoziciovektor().getX()*2);
-				ra.ragacs = (Ragacs) r.getMezo().getAkadaly();
-				this.view.addElment(ra);
+		if(!r.getKiesett()){
+			r.ragacsLerak();
+			try {
+				if(r.getMezo().getAkadaly()!=null){
+					GRagacs ra = new GRagacs(r.getMezo().getPoziciovektor().getY()*2, r.getMezo().getPoziciovektor().getX()*2);
+					ra.ragacs = (Ragacs) r.getMezo().getAkadaly();
+					this.view.addElment(ra);
+				}
+			} catch (IOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
 			}
-		} catch (IOException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
+			robotLeptet(r, new Vektor(0,0));
+			if(soronlevo == robotok.size())
+				soronlevo = 0;
 		}
-		robotLeptet(r, new Vektor(0,0));
-		if(soronlevo == robotok.size())
-			soronlevo = 0;
 	}
 
 	public int gyoztesValaszt() {
