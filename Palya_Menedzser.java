@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.event.MouseEvent;
 import java.io.IOException;
 
+import javax.swing.JPanel;
 import javax.swing.event.MouseInputAdapter;
 
 public class Palya_Menedzser extends MouseInputAdapter{
@@ -17,9 +18,9 @@ public class Palya_Menedzser extends MouseInputAdapter{
 	private int[] cntr;//Ez számolja hanyszor volt cp kioszt vagy hoztak letre robotot
 	
 	private View view;
+	private JPanel szoveg;
 
 	private boolean isVege = false;
-
 	/**
 	 * PM Letrehozasa.
 	 * @param szelesseg - Ekkora legyen a palya szelessege.
@@ -29,7 +30,7 @@ public class Palya_Menedzser extends MouseInputAdapter{
 	 * @param ragacs - Ennyi ragacsa legyen a robotoknak.
 	 * @param olaj - Ennyi olaja legyen a robotoknak.
 	 */
-	public Palya_Menedzser(int magassag, int szelesseg, int robotszam, int kor, int ragacs, int olaj, View view) {
+	public Palya_Menedzser(int magassag, int szelesseg, int robotszam, int kor, int ragacs, int olaj, View view, JPanel szoveg) {
 		this.kor = kor;
 		this.ragacskeszlet = ragacs;
 		this.olajkeszlet = olaj;
@@ -38,6 +39,7 @@ public class Palya_Menedzser extends MouseInputAdapter{
 		this.cntr = new int[]{0, 0};//0. a cp. 1. kisrobot
 		this.palya = palyaLetreHoz(magassag, szelesseg);
 		this.view = view;
+		this.szoveg = szoveg;
 		palya.robotok.get(0).setMezo(Tarolo.getMezo(new int[]{0, 0}));
 		GRobot r1;
 		try {
