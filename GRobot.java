@@ -33,7 +33,7 @@ public class GRobot implements RajzolAble {
 		if(!robot.getKiesett()){
 			x = robot.getMezo().getPoziciovektor().getY()*2-20;
 			y = robot.getMezo().getPoziciovektor().getX()*2-20;
-			System.out.println(robot.toString()+" : "+robot.getMezo().toString()+" vekvek "+ x+" "+y);
+//			System.out.println(robot.toString()+" : "+robot.getMezo().toString()+" vekvek "+ x+" "+y);
 			g.drawImage(kep, x, y, null);
 		}
 	}

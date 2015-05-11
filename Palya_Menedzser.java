@@ -141,7 +141,7 @@ public class Palya_Menedzser extends MouseInputAdapter implements ActionListener
 		try{
 		if(!isVege){
 			if(!palya.robotok.get(palya.getSoronlevo()).getKiesett()){
-			System.out.println("ololo");
+//			System.out.println("ololo");
 			int i=palya.robotok.get(palya.getSoronlevo()).getMezo().getPoziciovektor().getY()*2;
 			int j=palya.robotok.get(palya.getSoronlevo()).getMezo().getPoziciovektor().getX()*2;
 			int x=e.getX();
@@ -181,7 +181,7 @@ public class Palya_Menedzser extends MouseInputAdapter implements ActionListener
 					double angle=Math.atan2(y-j, x-i);
 					view.eger(i, j, (int) Math.floor(i+Math.cos(angle)*40), (int) Math.floor(j+Math.sin(angle)*40), view.getGraphics());
 					view.setvektor(i, j, i+palya.robotok.get(palya.getSoronlevo()).getSebessegvektor().getY()*2, j+palya.robotok.get(palya.getSoronlevo()).getSebessegvektor().getX()*2);
-					System.out.println(e.getX()+" "+ e.getY());
+//					System.out.println(e.getX()+" "+ e.getY());
 					view.repaint();
 				}else{				
 					//palya.robotLeptet(palya.robotok.get(palya.getSoronlevo()), null);
