@@ -6,6 +6,8 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.io.IOException;
 
+import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.event.MouseInputAdapter;
 
@@ -106,7 +108,17 @@ public class Palya_Menedzser extends MouseInputAdapter implements ActionListener
 				palya.oregit();//Olaj szaradasa
 				view.repaint();
 				}else{//Itt van vege a jateknak.
-					palya.gyoztesValaszt();
+					int theUltimateOne = palya.gyoztesValaszt();
+					Robot nyertes = palya.robotok.get(theUltimateOne);
+					JButton szub = new JButton("Fõmenü");
+					JLabel stat = new JLabel("Vége a játéknak! A nyertes a "+theUltimateOne+". Cp szám: "+nyertes.getCheckpoint()+"db.");//Ha, ha jó vicc Gábor! :D
+					
+					view.setVisible(false);
+					view.add(stat);
+					view.add(szub);	
+					szub.setActionCommand("EXIT");
+					szub.addActionListener(new Cucc());
+					view.setVisible(true);
 					isVege = true;
 				}
 			}
@@ -226,5 +238,16 @@ public class Palya_Menedzser extends MouseInputAdapter implements ActionListener
 				view.repaint();
 			}
 		}
+	}
+	
+	class Cucc implements ActionListener{
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			if(e.getActionCommand().equals("EXIT")){
+				System.exit(0);
+			}
+		}
+		
 	}
 }
