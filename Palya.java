@@ -48,16 +48,16 @@ public class Palya {
 		//kezdésnél a robotok elhelyezése
 		for(int i = 0; i<robotszam; i++){
 			switch(i){
-			case 1:
+			case 0:
 				robotok.get(i).setMezo(t.mezok[0][0]);
 				break;
-			case 2:
+			case 1:
 				robotok.get(i).setMezo(t.mezok[0][szelesseg-1]);
 				break;
-			case 3:
+			case 2:
 				robotok.get(i).setMezo(t.mezok[magassag-1][0]);
 				break;
-			case 4:
+			case 3:
 				robotok.get(i).setMezo(t.mezok[magassag-1][szelesseg-1]);
 				break;
 			default:

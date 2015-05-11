@@ -38,7 +38,7 @@ public class Palya_Menedzser extends MouseInputAdapter{
 		this.cntr = new int[]{0, 0};//0. a cp. 1. kisrobot
 		this.palya = palyaLetreHoz(magassag, szelesseg);
 		this.view = view;
-		palya.robotok.get(0).setMezo(Tarolo.getMezo(new int[]{0, 0}));
+		/*palya.robotok.get(0).setMezo(Tarolo.getMezo(new int[]{0, 0}));
 		GRobot r1;
 		try {
 			r1 = new GRobot();
@@ -47,17 +47,18 @@ public class Palya_Menedzser extends MouseInputAdapter{
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
+		}*/
 		
-		palya.robotok.get(1).setMezo(Tarolo.getMezo(new int[]{9, 0}));
-		GRobot r2;
-		try {
-			r2 = new GRobot();
-			r2.robot = palya.robotok.get(1);
-			view.addElment(r2);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		for(int i=0; i < palya.robotok.size(); i++){
+			try {
+				GRobot r = new GRobot();
+				r.robot = palya.robotok.get(i);
+				view.addElment(r);
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
 		}
 		
 
