@@ -36,11 +36,12 @@ public class GKisRobot implements RajzolAble {
 //			}
 //			elozo.setVektor(uj);
 //		}//Ha nincs, akkor kihagyjuk a fenti részt
-		
-		int x = kisRobot.getMezo().getPoziciovektor().getY()*2-20;
-		int y = kisRobot.getMezo().getPoziciovektor().getX()*2-20;
-//		System.out.println(kisRobot.toString()+" : "+kisRobot.getMezo().toString()+" vekvek "+ x+" "+y);
-		g.drawImage(img, x, y, null);
+		if(!this.kisRobot.getKiesett()){
+			int x = kisRobot.getMezo().getPoziciovektor().getY()*2-20;
+			int y = kisRobot.getMezo().getPoziciovektor().getX()*2-20;
+	//		System.out.println(kisRobot.toString()+" : "+kisRobot.getMezo().toString()+" vekvek "+ x+" "+y);
+			g.drawImage(img, x, y, null);
+		}
 		
 //		g.drawImage(img, elozo.getX(), elozo.getY(), null);//Rajzoljuk a helyére
 	}

@@ -41,6 +41,13 @@ public class Tarolo {
 			tmp[8][j].setPalyaszakasz(false);
 		}
 		
+		for(int i=1; i<5; i++ ){
+			tmp[4][i].setPalyaszakasz(true);
+			tmp[5][i].setPalyaszakasz(true);
+			tmp[4][szelesseg-i-1].setPalyaszakasz(true);
+			tmp[5][szelesseg-i-1].setPalyaszakasz(true);
+		}
+		
 		mezok = tmp;
 	}
 
