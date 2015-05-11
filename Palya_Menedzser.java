@@ -74,7 +74,6 @@ public class Palya_Menedzser extends MouseInputAdapter{
 						cntr[1] = 0;
 				}
 				palya.oregit();//Olaj szaradasa
-				view.rajzolAll();
 				}else{//Itt van vege a jateknak.
 					palya.gyoztesValaszt();
 					isVege = true;
