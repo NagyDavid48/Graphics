@@ -212,12 +212,16 @@ public class Palya_Menedzser extends MouseInputAdapter implements ActionListener
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
 		if(arg0.getActionCommand().equals("oil")){
-			palya.olajLerak(palya.robotok.get(palya.getSoronlevo()));
-			view.repaint();
+			if(palya.robotok.get(palya.getSoronlevo()).getOlaj()>0){
+				palya.olajLerak(palya.robotok.get(palya.getSoronlevo()));
+				view.repaint();
+			}
 		}
 		else if(arg0.getActionCommand().equals("glue")){
-			palya.ragacsLerak(palya.robotok.get(palya.getSoronlevo()));
-			view.repaint();
+			if(palya.robotok.get(palya.getSoronlevo()).getRagacs()>0){
+				palya.ragacsLerak(palya.robotok.get(palya.getSoronlevo()));
+				view.repaint();
+			}
 		}
 	}
 }
