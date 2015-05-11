@@ -322,9 +322,11 @@ public class Palya {
 	public void olajLerak(Robot r) {
 		r.olajLerak();
 		try {
-			GOlaj go = new GOlaj(r.getMezo().getPoziciovektor().getY()*2, r.getMezo().getPoziciovektor().getX()*2);
-			go.olaj = (Olajfolt) r.getMezo().getAkadaly();
-			view.addElment(go);
+			if(r.getMezo().getAkadaly()!=null){
+				GOlaj go = new GOlaj(r.getMezo().getPoziciovektor().getY()*2, r.getMezo().getPoziciovektor().getX()*2);
+				go.olaj = (Olajfolt) r.getMezo().getAkadaly();
+				view.addElment(go);
+			}
 		} catch (IOException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
@@ -340,9 +342,11 @@ public class Palya {
 	public void ragacsLerak(Robot r) {
 		r.ragacsLerak();
 		try {
-			GRagacs ra = new GRagacs(r.getMezo().getPoziciovektor().getY()*2, r.getMezo().getPoziciovektor().getX()*2);
-			ra.ragacs = (Ragacs) r.getMezo().getAkadaly();
-			this.view.addElment(ra);
+			if(r.getMezo().getAkadaly()!=null){
+				GRagacs ra = new GRagacs(r.getMezo().getPoziciovektor().getY()*2, r.getMezo().getPoziciovektor().getX()*2);
+				ra.ragacs = (Ragacs) r.getMezo().getAkadaly();
+				this.view.addElment(ra);
+			}
 		} catch (IOException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
