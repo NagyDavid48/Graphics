@@ -16,7 +16,7 @@ public class GRobot implements RajzolAble {
 	protected Robot robot;
 
 	GRobot() throws IOException{
-		kep = ImageIO.read(new File("Kepek/robot.jpg"));
+		kep = ImageIO.read(new File("Kepek/robot.gif"));
 		//x = robot.getMezo().getPoziciovektor().getX();
 		//y = robot.getMezo().getPoziciovektor().getY();
 	}

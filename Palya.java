@@ -62,28 +62,28 @@ public class Palya {
 		
 		//és néhány akadály és checkpoint
 		
-//		for(int i=0; i<4; i++){
-//			Random rnd = new Random();
-//			int a = rnd.nextInt(magassag)-1;  
-//			int b = rnd.nextInt(szelesseg)-1;
-//			int c = rnd.nextInt(magassag)-1;
-//			int d = rnd.nextInt(szelesseg)-1;
-//			int e = rnd.nextInt(magassag)-1;
-//			int f = rnd.nextInt(szelesseg)-1;
-//			
-//			//max 4 Olajfolt elhelyezése
-//			if(t.mezok[a][b].getPalyaszakasz())
-//				t.mezok[a][b].setAkadaly(new Olajfolt());
-//
-//			//max 4 Ragacs elhelyezése
-//			if(t.mezok[c][d].getPalyaszakasz())
-//				t.mezok[c][d].setAkadaly(new Ragacs());
-//			
-//			//max 4 Checkpoint kiosztása
-//			if(t.mezok[e][f].getPalyaszakasz())
-//				t.mezok[e][f].setAkadaly(new Ragacs());
-//			
-//		}
+		for(int i=0; i<4; i++){
+			Random rnd = new Random();
+			int a = rnd.nextInt(magassag);  
+			int b = rnd.nextInt(szelesseg);
+			int c = rnd.nextInt(magassag);
+			int d = rnd.nextInt(szelesseg);
+			int e = rnd.nextInt(magassag);
+			int f = rnd.nextInt(szelesseg);
+			
+			//max 4 Olajfolt elhelyezése
+			if(t.mezok[a][b].getPalyaszakasz())
+				t.mezok[a][b].setAkadaly(new Olajfolt());
+
+			//max 4 Ragacs elhelyezése
+			if(t.mezok[c][d].getPalyaszakasz())
+				t.mezok[c][d].setAkadaly(new Ragacs());
+			
+			//max 4 Checkpoint kiosztása
+			if(t.mezok[e][f].getPalyaszakasz())
+				t.mezok[e][f].setCheckpoint(true);
+			else i--;
+		}
 	}
 
 	/**

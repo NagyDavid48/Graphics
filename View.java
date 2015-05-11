@@ -24,22 +24,30 @@ public class View extends JPanel {
 	 * Kirajzolja ajáték elemeit. Mezõket, robototkat, stb.
 	 */
 	public void rajzolAll(Graphics g) {
-		for (RajzolAble item : rajzolAbles) {
-			item.rajzol(g);
+//		for (RajzolAble item : rajzolAbles) {
+//			item.rajzol(g);
+//		}
+		for (Mezo mt[] : Tarolo.getMezok()){
+			for (Mezo m : mt){
+				GMezo gm = new GMezo();
+				gm.mezo = m;
+				gm.rajzol(g);
+			}
 		}
 	}
 	
 	protected void paintComponent(Graphics g){
 		GRobot r;
-		try {
-			g.clearRect(0, 0, 900, 600);
-			r = new GRobot();
-			r.rajzol(g);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+//		try {
+//			g.clearRect(0, 0, 900, 600);
+//			r = new GRobot();
+//			r.rajzol(g);
+//		} catch (IOException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
 //		g.clearRect(0, 0, 900, 600);
+		rajzolAll(g);
 		if (line != null){
 			g.setColor(Color.RED);
 			g.drawLine(line[0], line[1], line[2], line[3]);

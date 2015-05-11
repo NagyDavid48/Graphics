@@ -19,25 +19,30 @@ public class GMezo implements RajzolAble{
 	public void rajzol(Graphics g) {
 		if(mezo.getCheckpoint()){
 			try {
-				kep=ImageIO.read(new File("checkpoint.jpg"));
+				if(kep == null)
+				kep=ImageIO.read(new File("Kepek/checkpoint.gif"));
 			} catch (IOException e) {
 				e.printStackTrace();
 				System.out.println("Hiba történt a kép beolvasása folyamán"+e.toString());
 			}
-			g.drawImage(kep, 200, 200, null);
+			g.drawImage(kep, mezo.getPoziciovektor().getY()-20, mezo.getPoziciovektor().getX()-20, null);
 		}
 		else if(mezo.getPalyaszakasz()){
 				try {
-					kep = ImageIO.read(new File("Normal.jpg"));
-					g.drawImage(kep, 200, 200, null);
+					if(kep == null)
+					kep = ImageIO.read(new File("Kepek/Normal.gif"));
+//					g.drawImage(kep, 200, 200, null);
+					g.drawImage(kep, mezo.getPoziciovektor().getY()-20, mezo.getPoziciovektor().getX()-20, null);
 				} catch (IOException e) {
 					e.printStackTrace();
 					System.out.println("Hiba történt a kép beolvasása folyamán"+e.toString());
 				}
 			}else{
 				try {
-					kep = ImageIO.read(new File("hole.jpg"));
-					g.drawImage(kep, 200, 200, null);
+					if(kep == null)
+					kep = ImageIO.read(new File("Kepek/hole.gif"));
+//					g.drawImage(kep, 200, 200, null);
+					g.drawImage(kep, mezo.getPoziciovektor().getY()-20, mezo.getPoziciovektor().getX()-20, null);
 				} catch (IOException e) {
 					e.printStackTrace();
 					System.out.println("Hiba történt a kép beolvasása folyamán"+e.toString());
