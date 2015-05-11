@@ -47,6 +47,14 @@ public class View extends JPanel {
 //			e.printStackTrace();
 //		}
 //		g.clearRect(0, 0, 900, 600);
+		try {
+			r = new GRobot(this);
+			Thread t = new Thread(r);
+			t.start();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		rajzolAll(g);
 		if (line != null){
 			g.setColor(Color.RED);
