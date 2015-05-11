@@ -38,6 +38,52 @@ public class Palya {
 		//Egyelõre valószínûleg a keretprogram fogja megmondani
 		for(int i = 0; i<robotszam; i++)
 			robotok.add(new Robot(olaj,ragacs));
+		
+		
+		//kezdésnél a robotok elhelyezése
+		for(int i = 0; i<robotszam; i++){
+			switch(i){
+			case 1:
+				robotok.get(i).setMezo(t.mezok[0][0]);
+				break;
+			case 2:
+				robotok.get(i).setMezo(t.mezok[0][szelesseg-1]);
+				break;
+			case 3:
+				robotok.get(i).setMezo(t.mezok[magassag-1][0]);
+				break;
+			case 4:
+				robotok.get(i).setMezo(t.mezok[magassag-1][szelesseg-1]);
+				break;
+			default:
+				break;
+			}
+		}
+		
+		//és néhány akadály és checkpoint
+		
+		for(int i=0; i<4; i++){
+			Random rnd = new Random();
+			int a = rnd.nextInt(magassag)-1;  
+			int b = rnd.nextInt(szelesseg)-1;
+			int c = rnd.nextInt(magassag)-1;
+			int d = rnd.nextInt(szelesseg)-1;
+			int e = rnd.nextInt(magassag)-1;
+			int f = rnd.nextInt(szelesseg)-1;
+			
+			//max 4 Olajfolt elhelyezése
+			if(t.mezok[a][b].getPalyaszakasz())
+				t.mezok[a][b].setAkadaly(new Olajfolt());
+
+			//max 4 Ragacs elhelyezése
+			if(t.mezok[c][d].getPalyaszakasz())
+				t.mezok[c][d].setAkadaly(new Ragacs());
+			
+			//max 4 Checkpoint kiosztása
+			if(t.mezok[e][f].getPalyaszakasz())
+				t.mezok[e][f].setAkadaly(new Ragacs());
+			
+		}
 	}
 
 	/**

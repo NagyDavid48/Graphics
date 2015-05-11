@@ -19,6 +19,28 @@ public class Tarolo {
 				tmp[i][j] = new Mezo(false, true, null, null, new Vektor(koordX, koordY));	
 			}
 		
+		///Szakadékok beállítása több darabban, hogy kényelmes legyen
+		for(int i=1; i<9; i++){
+			for(int j=1; j<4 ; j++){
+				tmp[i][j].setPalyaszakasz(false);
+				tmp[i][szelesseg-j-1].setPalyaszakasz(false);
+			}	
+		}
+		
+		for(int i=3; i<7; i++){
+			tmp[i][4].setPalyaszakasz(false);
+			tmp[i][szelesseg-4-1].setPalyaszakasz(false);
+			tmp[i][szelesseg-7-1].setPalyaszakasz(false);
+			tmp[i][szelesseg-8-1].setPalyaszakasz(false);
+		}
+		
+		for(int j=6; j<10; j++){
+			tmp[1][j].setPalyaszakasz(false);
+			tmp[4][j].setPalyaszakasz(false);
+			tmp[5][j].setPalyaszakasz(false);
+			tmp[8][j].setPalyaszakasz(false);
+		}
+		
 		mezok = tmp;
 	}
 
