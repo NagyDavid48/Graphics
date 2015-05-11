@@ -35,6 +35,9 @@ public class Robot extends Robotok {
 	public void lep(Vektor v) {				//lehet már nincs is szükség erre a visszatérési értékre
 		if (olajonvan == false)				// ha olajon vagyunk, nem változtathatunk sebességet
 			sebessegvektor.addVektor(v);
+		
+		this.olajonvan= false;
+		
 		Vektor poz = mezo.getPoziciovektor();	// a jelenlegi pozíciónk helyvektora
 		//az alábbi mûveletet kiszedtem a vektorátváltból, mert így tudom kiíratni, hogy a kisrobot melyik mezõn van
 		//ráadásul az jobb, ha a vekotrátvál nevû függvény csak átváltja  a vektotr és nem csinál mást
@@ -79,8 +82,7 @@ public class Robot extends Robotok {
 			this.kiesett = true;
 			this.olajonvan = false;
 			setMezo(null);
-		}
-			
+		}	
 	}
 
 	

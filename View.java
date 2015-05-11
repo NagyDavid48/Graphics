@@ -78,7 +78,7 @@ public class View extends JPanel {
 		return new Vektor((y-j)/2, (x-i)/2);
 	}
 	public void setvektor(int i, int j, int x, int y) {
-		vektor=new int[]{i, j, x, y};
+		vektor = new int[]{i, j, x, y};
 	}
 
 }
