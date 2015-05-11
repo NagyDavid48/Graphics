@@ -17,7 +17,7 @@ public class Window extends JFrame {
 	private Menu menu;
 	
 	Window(){
-		view=new View();
+		view = new View();
 		menu = new Menu();
 		
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
