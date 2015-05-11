@@ -321,6 +321,14 @@ public class Palya {
 	//kész
 	public void olajLerak(Robot r) {
 		r.olajLerak();
+		try {
+			GOlaj go = new GOlaj(r.getMezo().getPoziciovektor().getY()*2, r.getMezo().getPoziciovektor().getX()*2);
+			go.olaj = (Olajfolt) r.getMezo().getAkadaly();
+			this.view.addElment(go);
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 		soronlevo++;
 	}
 
@@ -331,6 +339,14 @@ public class Palya {
 	//kész
 	public void ragacsLerak(Robot r) {
 		r.ragacsLerak();
+		try {
+			GRagacs ra = new GRagacs(r.getMezo().getPoziciovektor().getY()*2, r.getMezo().getPoziciovektor().getX()*2);
+			ra.ragacs = (Ragacs) r.getMezo().getAkadaly();
+			this.view.addElment(ra);
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 		soronlevo++;
 	}
 

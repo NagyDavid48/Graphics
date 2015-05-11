@@ -90,7 +90,7 @@ public class Robot extends Robotok {
 			Olajfolt akadaly = new Olajfolt();
 			mezo.setAkadaly(akadaly);
 			olaj--;
-			lep(new Vektor());
+			//lep(new Vektor());
 		}
 	}
 
@@ -99,8 +99,8 @@ public class Robot extends Robotok {
 		if (ragacs > 0){
 			Ragacs akadaly = new Ragacs();
 			mezo.setAkadaly(akadaly);
-			ragacs = ragacs - 1;
-			lep(new Vektor());
+			ragacs--;
+			//lep(new Vektor());
 		}
 	}
 
