@@ -11,18 +11,21 @@ import javax.imageio.ImageIO;
 public class GRobot implements RajzolAble {
 
 	protected Image kep;
+	protected Image kep2;
 	protected int x;
 	protected int y;
 	protected Robot robot;
+	protected Graphics gr = null;
+	protected int i;
 
 	GRobot() throws IOException{
 		kep = ImageIO.read(new File("Kepek/robot.gif"));
 //		x = robot.getMezo().getPoziciovektor().getX();
 //		y = robot.getMezo().getPoziciovektor().getY();
+
 	}
 	
 	public void rajzol(Graphics g) {
-	
 //		for(int i=0; i<200; i+=50){
 //			g.drawImage(kep, i, 50, null);
 //			try {Thread.sleep(80);} catch (InterruptedException e) {}//Így is lehet. Mást nem módosítottam.
@@ -43,5 +46,6 @@ public class GRobot implements RajzolAble {
 		// TODO - implement GRobot.compareTo
 		throw new UnsupportedOperationException();
 	}
+
 
 }
