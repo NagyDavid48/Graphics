@@ -120,7 +120,7 @@ public class Palya_Menedzser extends MouseInputAdapter implements ActionListener
 	public void mouseClicked(MouseEvent e) {
 		try{
 		if(!isVege){
-			if(!palya.robotok.get(robocntr).getKiesett()){
+			if(!palya.robotok.get(palya.getSoronlevo()).getKiesett()){
 			System.out.println("ololo");
 			int i=palya.robotok.get(palya.getSoronlevo()).getMezo().getPoziciovektor().getY()*2;
 			int j=palya.robotok.get(palya.getSoronlevo()).getMezo().getPoziciovektor().getX()*2;
@@ -154,8 +154,8 @@ public class Palya_Menedzser extends MouseInputAdapter implements ActionListener
 					System.out.println(e.getX()+" "+ e.getY());
 					view.repaint();
 				}else{				
-					palya.robotLeptet(palya.robotok.get(palya.getSoronlevo()), null);
-					robocntr++;
+					//palya.robotLeptet(palya.robotok.get(palya.getSoronlevo()), null);
+					palya.vektorFeldolgoz(null);
 					view.repaint();
 				}
 			}
