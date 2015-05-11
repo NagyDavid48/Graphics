@@ -1,6 +1,5 @@
 package Graphics;
 
-import java.awt.Graphics;
 import java.awt.event.MouseEvent;
 
 import javax.swing.event.MouseInputAdapter;
@@ -16,7 +15,6 @@ public class Palya_Menedzser extends MouseInputAdapter{
 	private int[] cntr;//Ez számolja hanyszor volt cp kioszt vagy hoztak letre robotot
 	
 	private View view;
-	private Graphics g;
 
 	private boolean isVege = false;
 
@@ -75,7 +73,7 @@ public class Palya_Menedzser extends MouseInputAdapter{
 						cntr[1] = 0;
 				}
 				palya.oregit();//Olaj szaradasa
-				view.rajzolAll(g);
+				view.repaint();
 				}else{//Itt van vege a jateknak.
 					palya.gyoztesValaszt();
 					isVege = true;
@@ -92,7 +90,7 @@ public class Palya_Menedzser extends MouseInputAdapter{
 		if(e.paramString().equals("ROBOT_LEP")){
 			Vektor egerPoz = new Vektor(e.getX(), e.getY());//Csak robot léptetéskor kattintunk.
 			palya.vektorFeldolgoz(egerPoz);
-			view.rajzolAll(g);
+			view.repaint();
 		}
 	}
 
