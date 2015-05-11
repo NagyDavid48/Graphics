@@ -118,7 +118,7 @@ public class Palya_Menedzser extends MouseInputAdapter implements ActionListener
 				}else{//Itt van vege a jateknak.
 					int theUltimateOne = palya.gyoztesValaszt();
 					Robot nyertes = palya.robotok.get(theUltimateOne);
-					JButton szub = new JButton("Fõmenü");
+					JButton szub = new JButton("Kilépés");
 					JLabel stat = new JLabel("Vége a játéknak! A nyertes a "+theUltimateOne+". Cp szám: "+nyertes.getCheckpoint()+"db.");//Ha, ha jó vicc Gábor! :D
 					
 					view.setVisible(false);
@@ -244,6 +244,7 @@ public class Palya_Menedzser extends MouseInputAdapter implements ActionListener
 
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
+		
 		if(arg0.getActionCommand().equals("oil") && !isVege){
 			if(palya.robotok.get(palya.getSoronlevo()).getOlaj()>0 || !palya.robotok.get(palya.getSoronlevo()).getKiesett()){
 				palya.olajLerak(palya.robotok.get(palya.getSoronlevo()));
@@ -256,6 +257,19 @@ public class Palya_Menedzser extends MouseInputAdapter implements ActionListener
 				view.repaint();
 			}
 		}
+
+		szoveg.getGraphics().drawString("Cpszam :", 10, 20);
+		szoveg.getGraphics().drawString(Integer.toString(palya.robotok.get(palya.getSoronlevo()).getCheckpoint()), 10, 40);
+		szoveg.getGraphics().drawString("Ragacsszam :", 10, 60);
+		szoveg.getGraphics().drawString(Integer.toString(palya.robotok.get(palya.getSoronlevo()).getRagacs()), 10, 80);
+		szoveg.getGraphics().drawString("Olajszam :", 10, 100);
+		szoveg.getGraphics().drawString(Integer.toString(palya.robotok.get(palya.getSoronlevo()).getOlaj()), 10, 120);
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		szoveg.repaint();
 	}
 	
 	class Cucc implements ActionListener{
