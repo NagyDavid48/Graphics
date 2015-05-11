@@ -36,12 +36,8 @@ public class Palya_Menedzser extends MouseInputAdapter{
 		this.robocntr = 0;
 		this.cntr = new int[]{0, 0};//0. a cp. 1. kisrobot
 		this.palya = palyaLetreHoz(magassag, szelesseg);
-<<<<<<< HEAD
 		this.view = view;
-		
-=======
-		this.view = new View();
->>>>>>> 91fb31150557adbac91bfd5ea53e239af14a7624
+
 	}
 	
 	public Palya_Menedzser(){}

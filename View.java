@@ -40,9 +40,10 @@ public class View extends JPanel {
 			e.printStackTrace();
 		}
 //		g.clearRect(0, 0, 900, 600);
-		if (line != null)
+		if (line != null){
 			g.setColor(Color.RED);
 			g.drawLine(line[0], line[1], line[2], line[3]);
+		}
 	}
 
 	public void proba(int x, int y, Graphics g){

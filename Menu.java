@@ -39,6 +39,11 @@ public class Menu {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		JPanel palya = new JPanel();
+		if(beallit == null){
+			beallit=new Beallitasok();
+			beallit.f.setVisible(false);
+		}
+			
 		
 		JPanel oldalsav = new JPanel();
 		oldalsav.setSize(new Dimension(100, 600));
