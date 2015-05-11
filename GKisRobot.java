@@ -16,25 +16,31 @@ public class GKisRobot implements RajzolAble {
 
 	
 	GKisRobot() throws IOException{
-		img = ImageIO.read(new File("Kepek/Cleaner_robot.jpg"));
-		elozo = new Vektor(kisRobot.getMezo().getPoziciovektor().getX(), 
-						   kisRobot.getMezo().getPoziciovektor().getY());//itt m茅g a jelenlegi pozici贸val egyenl艖
+		img = ImageIO.read(new File("Kepek/Cleaner_robot.gif"));
+//		elozo = new Vektor(kisRobot.getMezo().getPoziciovektor().getX(), 
+//						   kisRobot.getMezo().getPoziciovektor().getY());//itt m茅g a jelenlegi pozici贸val egyenl艖
 	}
 	
 	public void rajzol(Graphics g) {
-		Vektor uj = new Vektor(kisRobot.getMezo().getPoziciovektor().getX(),
-							   kisRobot.getMezo().getPoziciovektor().getY());//Megv醠tozott pozici贸
+//		Vektor uj = new Vektor(kisRobot.getMezo().getPoziciovektor().getX(),
+//							   kisRobot.getMezo().getPoziciovektor().getY());//Megv醠tozott pozici贸
+//		
+//		if(uj.getX()!=elozo.getX() || uj.getY()!=elozo.getY()){//ha v醠toz醩 van, akkor kirajzoljuk a mozg醩t
+//			Vektor kulonbseg = uj.addVektor2(elozo);//Vessz黭 a k黮鰊bs間et
+//			//kulonbseg.skalarOszt(2);
+//			while(elozo.getX() == uj.getX() && elozo.getY() == uj.getY()) {
+//				elozo.addVektor(kulonbseg);
+//				g.drawImage(img, elozo.getX(), elozo.getY(), null);
+//			}
+//			elozo.setVektor(uj);
+//		}//Ha nincs, akkor kihagyjuk a fenti r茅szt
 		
-		if(uj.getX()!=elozo.getX() || uj.getY()!=elozo.getY()){//ha v醠toz醩 van, akkor kirajzoljuk a mozg醩t
-			Vektor kulonbseg = uj.addVektor2(elozo);//Vessz黭 a k黮鰊bs間et
-			//kulonbseg.skalarOszt(2);
-			while(elozo.getX() == uj.getX() && elozo.getY() == uj.getY()) {
-				elozo.addVektor(kulonbseg);
-				g.drawImage(img, elozo.getX(), elozo.getY(), null);
-			}
-			elozo.setVektor(uj);
-		}//Ha nincs, akkor kihagyjuk a fenti r茅szt
-		g.drawImage(img, elozo.getX(), elozo.getY(), null);//Rajzoljuk a hely茅re
+		int x = kisRobot.getMezo().getPoziciovektor().getY()*2-20;
+		int y = kisRobot.getMezo().getPoziciovektor().getX()*2-20;
+//		System.out.println(kisRobot.toString()+" : "+kisRobot.getMezo().toString()+" vekvek "+ x+" "+y);
+		g.drawImage(img, x, y, null);
+		
+//		g.drawImage(img, elozo.getX(), elozo.getY(), null);//Rajzoljuk a hely茅re
 	}
 
 	/**

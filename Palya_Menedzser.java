@@ -66,7 +66,7 @@ public class Palya_Menedzser extends MouseInputAdapter{
 	public Palya_Menedzser(){}
 	
 	public Palya palyaLetreHoz(int magassag, int szelesseg){
-		return new Palya(magassag, szelesseg,robotszam, olajkeszlet, ragacskeszlet);
+		return new Palya(magassag, szelesseg,robotszam, olajkeszlet, ragacskeszlet, view);
 	}
 	
 	//Valahogy meg kell oldani az inputok feldolgozasat. - Megbeszeles.
@@ -85,6 +85,7 @@ public class Palya_Menedzser extends MouseInputAdapter{
 			if (robocntr == robotszam) // ha minden robot lépett
 			{
 				kor--;
+				robocntr = 0;
 				for(int i = 0; i<cntr.length; ++i)
 					cntr[i]++;
 				if(kor>0){//Megy a jatek
@@ -119,7 +120,9 @@ public class Palya_Menedzser extends MouseInputAdapter{
 		double angle=Math.atan2(y-j, x-i);
 		Vektor v = view.getVektor(i, j, (int) Math.floor(i+Math.cos(angle)*40), (int) Math.floor(j+Math.sin(angle)*40));
 		palya.vektorFeldolgoz(v);
+		korSzamol();
 		System.out.println("lilili "+palya.robotok.get(0).toString()+" : "+palya.robotok.get(0).getMezo().toString());
+		view.repaint();
 		view.repaint();
 	}
 	
