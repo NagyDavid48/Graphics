@@ -22,17 +22,11 @@ public class GRobot implements RajzolAble {
 	}
 	
 	public void rajzol(Graphics g) {
-		/*try {
-			for(int i=0; i<200; i+=50){
-					g.drawImage(kep, i, 50, null);
-					Thread.sleep(50);
-			}
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			System.out.println("HIba");
-		}*/
-		
+	
+		for(int i=0; i<200; i+=50){
+			g.drawImage(kep, i, 50, null);
+			try {Thread.sleep(80);} catch (InterruptedException e) {}//Így is lehet. Mást nem módosítottam.
+	}
 		g.drawImage(kep, 200,200, null);
 	}
 
