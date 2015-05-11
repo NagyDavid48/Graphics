@@ -129,7 +129,7 @@ public class Palya_Menedzser extends MouseInputAdapter implements ActionListener
 			Vektor v = view.getVektor(i, j, (int) Math.floor(i+Math.cos(angle)*40), (int) Math.floor(j+Math.sin(angle)*40));
 			palya.vektorFeldolgoz(v);
 			korSzamol();
-			System.out.println("lilili "+palya.robotok.get(0).toString()+" : "+palya.robotok.get(0).getMezo().toString());
+			//System.out.println("lilili "+palya.robotok.get(0).toString()+" : "+palya.robotok.get(0).getMezo().toString());
 			view.repaint();
 			view.repaint();
 			}else{
