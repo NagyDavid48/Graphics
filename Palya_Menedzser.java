@@ -39,8 +39,9 @@ public class Palya_Menedzser extends MouseInputAdapter implements ActionListener
 		this.robotszam = robotszam;
 		this.robocntr = 0;
 		this.cntr = new int[]{0, 0};//0. a cp. 1. kisrobot
-		this.palya = palyaLetreHoz(magassag, szelesseg);
 		this.view = view;
+		this.palya = palyaLetreHoz(magassag, szelesseg);
+		
 		/*palya.robotok.get(0).setMezo(Tarolo.getMezo(new int[]{0, 0}));
 		this.szoveg = szoveg;
 		palya.robotok.get(0).setMezo(Tarolo.getMezo(new int[]{0, 0}));
@@ -110,7 +111,7 @@ public class Palya_Menedzser extends MouseInputAdapter implements ActionListener
 				}
 			}
 		}
-		palya.oregit();
+//		palya.oregit();
 	}
 	
 	/**

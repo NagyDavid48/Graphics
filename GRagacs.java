@@ -11,15 +11,19 @@ public class GRagacs implements RajzolAble {
 
 	protected Image kep;
 	protected Ragacs ragacs;
+	int x;
+	int y;
 	
-	GRagacs() throws IOException{
-		kep = ImageIO.read(new File("Kepek/glue.jpg"));
+	GRagacs(int x, int y) throws IOException{
+		kep = ImageIO.read(new File("Kepek/glue.gif"));
+		this.x=x;
+		this.y=y;
 	}
 	
 	public void rajzol(Graphics g) {
 		// TODO - implement GRagacs.rajzol
 		if(ragacs.getElet()!=0)
-			g.drawImage(kep, 0, 0, null);
+			g.drawImage(kep, x-20, y-20, null);
 	}
 
 	/**

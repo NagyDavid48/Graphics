@@ -34,7 +34,6 @@ public class Palya {
 		this.szelesseg = szelesseg;
 		this.soronlevo = 0;
 		this.view = view;
-		System.out.println(this.view.toString());
 		
 		//hogyan állítsuk be a mezõk specialításait akadály, robot, cp, szakadek 
 		//Egyelõre meredt úgy hogy sima mezõket hoz létre nincs rajta semmi és nem szakadék
@@ -90,9 +89,17 @@ public class Palya {
 				}
 			}
 			//max 4 Ragacs elhelyezése
-			if(t.mezok[c][d].getPalyaszakasz())
+			if(t.mezok[c][d].getPalyaszakasz()){
 				t.mezok[c][d].setAkadaly(new Ragacs());
-			
+				try {
+					GRagacs go = new GRagacs(t.mezok[c][d].getPoziciovektor().getY()*2, t.mezok[c][d].getPoziciovektor().getX()*2);
+					go.ragacs = (Ragacs) t.mezok[c][d].getAkadaly();
+					this.view.addElment(go);
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			}
 			//max 4 Checkpoint kiosztása
 			if(t.mezok[e][f].getPalyaszakasz())
 				t.mezok[e][f].setCheckpoint(true);

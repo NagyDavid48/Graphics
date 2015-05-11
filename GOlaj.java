@@ -24,7 +24,7 @@ public class GOlaj implements RajzolAble {
 	public void rajzol(Graphics g) {
 		// TODO - implement GOlaj.rajzol
 		if(olaj.getElet()!=0)
-			g.drawImage(kep, x, y, null);
+			g.drawImage(kep, x-20, y-20, null);
 	}
 
 	/**
