@@ -95,9 +95,12 @@ public class Palya {
 		if(soronlevo >= robotok.size())
 			soronlevo = 0;
 		
-		if (robotok.size() > 0)
+		if (robotok.size() > 0){
+			System.out.println(robotok.get(soronlevo).toString());
+			System.out.println("honnan "+robotok.get(soronlevo).getMezo().toString());
 			robotLeptet(robotok.get(soronlevo),v);	
-		
+//			System.out.println("hova "+robotok.get(soronlevo).getMezo().toString());
+		}
 		if(soronlevo == robotok.size()){
 			soronlevo = 0;
 			if (kisrobotok.size() != 0){
@@ -342,5 +345,9 @@ public class Palya {
 				}//Ha nincs, akkor nem csinalunk semmit.
 			}
 		}
+	}
+
+	public int getSoronlevo() {
+		return soronlevo;
 	}
 }

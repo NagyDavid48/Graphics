@@ -2,6 +2,7 @@ package Graphics;
 
 import java.awt.Color;
 import java.awt.event.MouseEvent;
+import java.io.IOException;
 
 import javax.swing.event.MouseInputAdapter;
 
@@ -37,6 +38,28 @@ public class Palya_Menedzser extends MouseInputAdapter{
 		this.cntr = new int[]{0, 0};//0. a cp. 1. kisrobot
 		this.palya = palyaLetreHoz(magassag, szelesseg);
 		this.view = view;
+		palya.robotok.get(0).setMezo(Tarolo.getMezo(new int[]{0, 0}));
+		GRobot r1;
+		try {
+			r1 = new GRobot();
+			r1.robot = palya.robotok.get(0);
+			view.addElment(r1);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		palya.robotok.get(1).setMezo(Tarolo.getMezo(new int[]{9, 0}));
+		GRobot r2;
+		try {
+			r2 = new GRobot();
+			r2.robot = palya.robotok.get(1);
+			view.addElment(r2);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 
 	}
 	
@@ -88,103 +111,30 @@ public class Palya_Menedzser extends MouseInputAdapter{
 	 * A pályán kattintanak.
 	 */
 	public void mouseClicked(MouseEvent e) {
-//		if(e.paramString().equals("ROBOT_LEP")){
-//			Vektor egerPoz = new Vektor(e.getX(), e.getY());//Csak robot léptetéskor kattintunk.
-//			palya.vektorFeldolgoz(egerPoz);
-//			view.repaint();
-//		}
 		System.out.println("ololo");
-		view.setBackground(Color.RED);
-		view.proba(e.getX(), e.getY(), view.getGraphics());
-		System.out.println(e.getX()+" "+ e.getY());
-//		view.repaint();
+		int i=palya.robotok.get(palya.getSoronlevo()).getMezo().getPoziciovektor().getY()*2;
+		int j=palya.robotok.get(palya.getSoronlevo()).getMezo().getPoziciovektor().getX()*2;
+		int x=e.getX();
+		int y=e.getY();
+		double angle=Math.atan2(y-j, x-i);
+		Vektor v = view.getVektor(i, j, (int) Math.floor(i+Math.cos(angle)*40), (int) Math.floor(j+Math.sin(angle)*40));
+		palya.vektorFeldolgoz(v);
+		System.out.println("lilili "+palya.robotok.get(0).toString()+" : "+palya.robotok.get(0).getMezo().toString());
+		view.repaint();
 	}
 	
 	public void mouseMoved(MouseEvent e) {
-		view.eger(e.getX(), e.getY(), view.getGraphics());
+		int i=palya.robotok.get(palya.getSoronlevo()).getMezo().getPoziciovektor().getY()*2;
+		int j=palya.robotok.get(palya.getSoronlevo()).getMezo().getPoziciovektor().getX()*2;
+		int x=e.getX();
+		int y=e.getY();
+		double angle=Math.atan2(y-j, x-i);
+		view.eger(i, j, (int) Math.floor(i+Math.cos(angle)*40), (int) Math.floor(j+Math.sin(angle)*40), view.getGraphics());
+		view.setvektor(i, j, i+palya.robotok.get(palya.getSoronlevo()).getSebessegvektor().getY()*2, j+palya.robotok.get(palya.getSoronlevo()).getSebessegvektor().getX()*2);
 		System.out.println(e.getX()+" "+ e.getY());
 		view.repaint();
 	}
 
-	/**
-	 * Ha egy robot lépne, akkor egy egység vektor rajzolódik ki és az megy kõrbe a robot körül.
-	 */
-	public void mouseDragged(MouseEvent e) {
-		System.out.println(e.getX()+" "+ e.getY());
-		Vektor egerPoz = new Vektor(e.getX(), e.getY());//Egér jelenleg hol van
-		Vektor[] mozgo = new Vektor[]{//Lehet, tagváltozónak jobb lenne.
-				new Vektor(), //teteje
-				new Vektor()  //alja
-				};//Ez mozog a robot körül
-		Vektor innen = this.palya.robotok.get(robocntr).getMezo().getPoziciovektor();//A this csak ráadás. :D It's so wrong! :D
-		mozgo[1].setVektor(innen);
-		
-		int x = checkKoordinates(egerPoz, innen);
-		
-		if(x == 0){//Minden ok, pozicionálunk.
-			mozgo[0].setVektor(egerPoz);
-		}else{
-			switch(x){
-			case 1:
-				mozgo[0].setY(egerPoz.getY());
-				mozgo[0].setX(innen.getX()+10);
-				break;
-			case 2:
-				mozgo[0].setX(egerPoz.getX());
-				mozgo[0].setY(innen.getY()+10);
-				break;
-			case 3:
-				mozgo[0].setY(innen.getY()+10);
-				mozgo[0].setX(innen.getX()+10);
-				break;
-			case 4:
-				mozgo[0].setY(egerPoz.getY());
-				mozgo[0].setX(innen.getX()-10);
-				break;
-			case 5:
-				mozgo[0].setX(egerPoz.getX());
-				mozgo[0].setY(innen.getY()-10);
-				break;
-			default://6
-				mozgo[0].setY(innen.getY()-10);
-				mozgo[0].setX(innen.getX()-10);
-				break;
-			}
-		}
-	}
-	
-	/**
-	 * Ellenõrzi a két vektor arányait. Melyik miben tér el.
-	 * A poz. vektor közép pontja körül van egy 10 pixel sugarú kõr. (r = 10)
-	 * Ha ezen belül van a koordináta, akkor minden ok. Ha nem, akkor megvizsgálja mi a gond.
-	 * @param poz - Ezt veti össze...
-	 * @param kozep - ... ezzel.
-	 * @return
-	 * Ha poz.x > kozep.x+10    --> 1
-	 * Ha poz.y > kozep.y+10    --> 2
-	 * Ha mind a kettõ nagyobb  --> 3
-	 * Ha poz.x < kozep.x-10    --> 4
-	 * Ha poz.y < kozep.y-10    --> 5
-	 * Ha mind a kettõ kisebb   --> 6
-	 * Ha ok, 			        --> 0
-	 */
-	private int checkKoordinates(Vektor poz, Vektor kozep){
-		if(poz.getX() > kozep.getX()+10 && (poz.getY() >= kozep.getY()+10 || poz.getY() <= kozep.getY()-10) )
-			return 1;// x túl nagy, de y ok
-		if(poz.getY() > kozep.getY()+10 && (poz.getX() >= kozep.getX()+10 || poz.getX() <= kozep.getX()-10))
-			return 2;// y túl nagy, de x ok
-		if((poz.getX() > kozep.getX()+10) && (poz.getY() > kozep.getY()+10))
-			return 3;//Minden túl nagy
-		
-		if(poz.getX() < kozep.getX()-10 && (poz.getY() >= kozep.getY()+10 || poz.getY() <= kozep.getY()-10) )
-			return 4;// x túl kicsi, de y ok
-		if(poz.getY() < kozep.getY()-10 && (poz.getX() >= kozep.getX()+10 || poz.getX() <= kozep.getX()-10))
-			return 5;// y túl kicsi, de x ok
-		if((poz.getX() < kozep.getX()-10) && (poz.getY() > kozep.getY()-10))
-			return 6;//Minden túl kicsi
-		
-		return 0;//minden ok
-	}
 
 	/**
 	 * Vissza adja a korok szamat.

@@ -14,8 +14,8 @@ public class Tarolo {
 		
 		for(int i = 0 ; i<magassag; i++)
 			for(int j = 0 ; j<szelesseg; j++){
-				int koordX = (i*2+1)*20;															// ha 40 széles a mezõ
-				int koordY = (j*2+1)*20;
+				int koordX = (i*2+1)*10;															// ha 20 széles a mezõ
+				int koordY = (j*2+1)*10;
 				tmp[i][j] = new Mezo(false, true, null, null, new Vektor(koordX, koordY));	
 			}
 		

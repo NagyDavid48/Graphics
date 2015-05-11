@@ -11,6 +11,7 @@ public class View extends JPanel {
 
 	private ArrayList<RajzolAble> rajzolAbles;
 	private int[] line;
+	private int[] vektor;
 
 	public View(){
 		rajzolAbles = new ArrayList<RajzolAble>();
@@ -34,6 +35,9 @@ public class View extends JPanel {
 				gm.rajzol(g);
 			}
 		}
+		for (RajzolAble item : rajzolAbles) {
+			item.rajzol(g);
+		}
 	}
 	
 	protected void paintComponent(Graphics g){
@@ -52,20 +56,29 @@ public class View extends JPanel {
 			g.setColor(Color.RED);
 			g.drawLine(line[0], line[1], line[2], line[3]);
 		}
+		if (vektor != null){
+			g.setColor(Color.GREEN);
+			g.drawLine(vektor[0], vektor[1], vektor[2], vektor[3]);
+		}
 	}
 
 	public void proba(int x, int y, Graphics g){
 		g.drawRect(x, y, 30, 30);
 	}
 	
-	public void eger(int x, int y, Graphics g){
+	public void eger(int i, int j, int x, int y, Graphics g){
 //		g.drawLine(200, 200, x, y);
-		setline(219, 219, x, y);
+		setline(i, j, x, y);
 	}
 
 	private void setline(int i, int j, int x, int y) {
-		double angle=Math.atan2(y-j, x-i);
-		line=new int[]{i, j, (int) Math.floor(i+Math.cos(angle)*40), (int) Math.floor(j+Math.sin(angle)*40)};
+		line=new int[]{i, j, x, y};
+	}
+	public Vektor getVektor(int i, int j, int x, int y) {
+		return new Vektor((y-j)/2, (x-i)/2);
+	}
+	public void setvektor(int i, int j, int x, int y) {
+		vektor=new int[]{i, j, x, y};
 	}
 
 }

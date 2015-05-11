@@ -14,7 +14,7 @@ public class GOlaj implements RajzolAble {
 
 	
 	GOlaj() throws IOException{
-		kep = ImageIO.read(new File("Kepek/oil.jpg"));
+		kep = ImageIO.read(new File("Kepek/oil.gif"));
 	}
 	
 	public void rajzol(Graphics g) {
