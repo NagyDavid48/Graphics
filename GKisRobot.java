@@ -23,13 +23,14 @@ public class GKisRobot implements RajzolAble {
 	
 	public void rajzol(Graphics g) {
 		Vektor uj = new Vektor(kisRobot.getMezo().getPoziciovektor().getX(),
-							   kisRobot.getMezo().getPoziciovektor().getY());//MegvÃ¡ltozott poziciÃ³
-		if(uj.getX()!=elozo.getX() || uj.getY()!=elozo.getY()){//ha vÃ¡ltozÃ¡s van, akkor kirajzoljuk a mozgÃ¡st
-			Vektor kulonbseg = uj.addVektor2(elozo);
+							   kisRobot.getMezo().getPoziciovektor().getY());//Megváltozott poziciÃ³
+		
+		if(uj.getX()!=elozo.getX() || uj.getY()!=elozo.getY()){//ha változás van, akkor kirajzoljuk a mozgást
+			Vektor kulonbseg = uj.addVektor2(elozo);//Vesszük a különbséget
 			//kulonbseg.skalarOszt(2);
 			while(elozo.getX() == uj.getX() && elozo.getY() == uj.getY()) {
 				elozo.addVektor(kulonbseg);
-				g.drawImage(img, kulonbseg.getX(), kulonbseg.getY(), null);
+				g.drawImage(img, elozo.getX(), elozo.getY(), null);
 			}
 			elozo.setVektor(uj);
 		}//Ha nincs, akkor kihagyjuk a fenti rÃ©szt
