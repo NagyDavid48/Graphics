@@ -33,7 +33,7 @@ public class Menu {
 	public void ujJatek() {
 		JFrame frame = new JFrame();
 		frame.setTitle("Phoebe");
-		frame.setSize(740,425);
+		frame.setSize(740,428);
 		frame.setResizable(false);
 		frame.setLocationRelativeTo(null);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
