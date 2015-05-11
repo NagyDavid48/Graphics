@@ -33,7 +33,7 @@ public class Menu {
 	public void ujJatek() {
 		JFrame frame = new JFrame();
 		frame.setTitle("Phoebe");
-		frame.setSize(1000,600);
+		frame.setSize(740,428);
 		frame.setResizable(false);
 		frame.setLocationRelativeTo(null);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -87,6 +87,7 @@ public class Menu {
 		panel.addMouseListener(pm);
 		panel.addMouseMotionListener(pm);
 		panel.repaint();
+		
 	}
 
 	public void beallítasok() {

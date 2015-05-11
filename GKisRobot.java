@@ -17,8 +17,10 @@ public class GKisRobot implements RajzolAble {
 	
 	GKisRobot() throws IOException{
 		img = ImageIO.read(new File("Kepek/Cleaner_robot.gif"));
+
 //		elozo = new Vektor(kisRobot.getMezo().getPoziciovektor().getX(), 
 //						   kisRobot.getMezo().getPoziciovektor().getY());//itt még a jelenlegi pozicióval egyenlő
+
 	}
 	
 	public void rajzol(Graphics g) {
