@@ -1,12 +1,13 @@
 package Graphics;
 
+import java.awt.Graphics;
 import java.awt.Image;
 import java.io.File;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
-public class GMezo {
+public class GMezo implements RajzolAble{
 
 	protected Image kep;
 	protected int z;
@@ -14,32 +15,28 @@ public class GMezo {
 
 	GMezo(){
 	}
-	
-	public void rajzol() {
+
+	@Override
+	public void rajzol(Graphics g) {
 		if(mezo.getPalyaszakasz()){
 			try {
-			    kep = ImageIO.read(new File("Normal.jpg"));
+				kep = ImageIO.read(new File("Normal.jpg"));
+				g.drawImage(kep, 200, 200, null);
 			} catch (IOException e) {
-				
+				e.printStackTrace();
+				System.out.println("Hiba történt a kép beolvasása folyamán"+e.toString());
 			}
 		}else{
 			try {
-			    kep = ImageIO.read(new File("hole.jpg"));
+				kep = ImageIO.read(new File("Normal.jpg"));
+				g.drawImage(kep, 200, 200, null);
 			} catch (IOException e) {
-				
+				e.printStackTrace();
+				System.out.println("Hiba történt a kép beolvasása folyamán"+e.toString());
 			}
 		}
-			
 	}
 	
-	public Mezo getMezo() {
-		return mezo;
-	}
-
-	public void setMezo(Mezo mezo) {
-		this.mezo = mezo;
-	}
-
 	/**
 	 * 
 	 * @param d
