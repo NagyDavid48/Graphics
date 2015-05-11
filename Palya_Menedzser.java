@@ -42,7 +42,15 @@ public class Palya_Menedzser extends MouseInputAdapter implements ActionListener
 		this.robocntr = 0;
 		this.cntr = new int[]{0, 0};//0. a cp. 1. kisrobot
 		this.view = view;
+		this.szoveg = szoveg;
 		this.palya = palyaLetreHoz(magassag, szelesseg);
+		
+		szoveg.getGraphics().drawString("Cpszam :", 10, 20);
+		szoveg.getGraphics().drawString(Integer.toString(palya.robotok.get(palya.getSoronlevo()).getCheckpoint()), 10, 40);
+		szoveg.getGraphics().drawString("Ragacsszam :", 10, 60);
+		szoveg.getGraphics().drawString(Integer.toString(palya.robotok.get(palya.getSoronlevo()).getRagacs()), 10, 80);
+		szoveg.getGraphics().drawString("Olajszam :", 10, 100);
+		szoveg.getGraphics().drawString(Integer.toString(palya.robotok.get(palya.getSoronlevo()).getOlaj()), 10, 120);
 		
 		/*palya.robotok.get(0).setMezo(Tarolo.getMezo(new int[]{0, 0}));
 		this.szoveg = szoveg;
@@ -141,6 +149,16 @@ public class Palya_Menedzser extends MouseInputAdapter implements ActionListener
 			double angle=Math.atan2(y-j, x-i);
 			Vektor v = view.getVektor(i, j, (int) Math.floor(i+Math.cos(angle)*40), (int) Math.floor(j+Math.sin(angle)*40));
 			palya.vektorFeldolgoz(v);
+		
+			szoveg.getGraphics().drawString("Cpszam :", 10, 20);
+			szoveg.getGraphics().drawString(Integer.toString(palya.robotok.get(palya.getSoronlevo()).getCheckpoint()), 10, 40);
+			szoveg.getGraphics().drawString("Ragacsszam :", 10, 60);
+			szoveg.getGraphics().drawString(Integer.toString(palya.robotok.get(palya.getSoronlevo()).getRagacs()), 10, 80);
+			szoveg.getGraphics().drawString("Olajszam :", 10, 100);
+			szoveg.getGraphics().drawString(Integer.toString(palya.robotok.get(palya.getSoronlevo()).getOlaj()), 10, 120);
+			Thread.sleep(1000);
+			szoveg.repaint();
+			
 			korSzamol();
 			//System.out.println("lilili "+palya.robotok.get(0).toString()+" : "+palya.robotok.get(0).getMezo().toString());
 			view.repaint();
