@@ -26,6 +26,7 @@ public class Beallitasok {
 	
 	public Beallitasok(){
 		f = new JFrame("Beállítások");
+		f.setTitle("Beálítások");
 		JLabel rob = new JLabel("Robotszám");
 		JLabel ol = new JLabel("Olajszám");
 		JLabel rag = new JLabel("Ragacsszám");
