@@ -1,5 +1,6 @@
 package Graphics;
 
+import java.io.IOException;
 import java.io.PrintWriter;
 
 public class KisRobot extends Robotok {
@@ -8,12 +9,14 @@ public class KisRobot extends Robotok {
 	private Mezo mezo;
 	private boolean foltonvan;
 	private boolean kiesett;
+	private View view;
 
-	public KisRobot() {
+	public KisRobot(View view) {
 		sebessegvektor = new Vektor();
 		mezo = null;
 		foltonvan = false;
 		kiesett = false;
+		this.view=view;
 	}
 
 	public boolean getFoltonvan() {
@@ -112,6 +115,16 @@ public class KisRobot extends Robotok {
 	public int utkozes(Robot r) {
 		this.setKiesett(true);	//Szegény kisrobotnak annyi
 		this.getMezo().setAkadaly(new Olajfolt());	//A helyére olajfolt kerül
+		GOlaj go;
+		try {
+			go = new GOlaj(getMezo().getPoziciovektor().getY()*2, getMezo().getPoziciovektor().getX()*2);
+			go.olaj = (Olajfolt) getMezo().getAkadaly();
+			view.addElment(go);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		r.setMezo(mezo);	//A robot megkapja az új mezõt
 		r.setOlajonvan(true);	//Viszont olajfoltra került így
 		this.setMezo(null);

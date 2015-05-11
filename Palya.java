@@ -266,7 +266,7 @@ public class Palya {
 			koordinata[1]=oszlop;
 			if(m[sor][oszlop].getPalyaszakasz() == true && m[sor][oszlop].getRobot() == null)
 			{
-				kisrobotok.add(new KisRobot());		//kisrobot konstruktoába létrehozza magának a vektorát
+				kisrobotok.add(new KisRobot(view));		//kisrobot konstruktoába létrehozza magának a vektorát
 				kisrobotok.get(i).setMezo(m[sor][oszlop]);
 				try {
 					GKisRobot gkr = new GKisRobot();

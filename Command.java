@@ -232,7 +232,7 @@ public class Command {
 
 	private void krl(String[] cmd) {
 		if (cmd.length == 3){
-			KisRobot r = new KisRobot();  // új kisrobotot hozunk létre
+			KisRobot r = new KisRobot(new View());  // új kisrobotot hozunk létre
 			pm.palya.kisrobotok.add(r);
 			int[] koord = new int[2];
 			try {
