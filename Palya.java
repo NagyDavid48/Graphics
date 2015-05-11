@@ -1,7 +1,10 @@
 package Graphics;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Random;
+
+import javax.swing.JPanel;
 
 public class Palya {
 
@@ -14,6 +17,7 @@ public class Palya {
 	//egyszerûbb randomgeneráláshoz tagváltozók
 	private int szelesseg;	
 	private int magassag;
+	private View view;
 
 	/**
 	 * 
@@ -23,12 +27,13 @@ public class Palya {
 	 * @param olaj
 	 * @param ragacs
 	 */
-	public Palya(int magassag, int szelesseg, int robotszam, int olaj, int ragacs) {
+	public Palya(int magassag, int szelesseg, int robotszam, int olaj, int ragacs, View view) {
 		this.robotok = new ArrayList<Robot>();
 		this.kisrobotok = new ArrayList<KisRobot>();
 		this.magassag = magassag;
 		this.szelesseg = szelesseg;
 		this.soronlevo = 0;
+		this.view = view;
 		
 		//hogyan állítsuk be a mezõk specialításait akadály, robot, cp, szakadek 
 		//Egyelõre meredt úgy hogy sima mezõket hoz létre nincs rajta semmi és nem szakadék
@@ -247,6 +252,14 @@ public class Palya {
 			{
 				kisrobotok.add(new KisRobot());		//kisrobot konstruktoába létrehozza magának a vektorát
 				kisrobotok.get(i).setMezo(m[sor][oszlop]);
+				try {
+					GKisRobot gkr = new GKisRobot();
+					gkr.kisRobot = kisrobotok.get(i);
+					view.addElment(gkr);
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 				i++;
 			}
 		}
