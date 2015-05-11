@@ -65,6 +65,7 @@ public class Menu {
 		olaj.setAlignmentX(Component.CENTER_ALIGNMENT);
 		ragacs.setAlignmentX(Component.CENTER_ALIGNMENT);
 		
+		
 		gombok.setLayout(new BoxLayout(gombok, BoxLayout.Y_AXIS));
 		gombok.add(olaj);
 		gombok.add(Box.createRigidArea(new Dimension(0,5)));
@@ -88,6 +89,11 @@ public class Menu {
 		panel.addMouseMotionListener(pm);
 		panel.repaint();
 		
+		olaj.addActionListener(pm);
+		ragacs.addActionListener(pm);
+		olaj.setActionCommand("oil");
+		ragacs.setActionCommand("glue");
+		
 	}
 
 	public void beallítasok() {
@@ -97,5 +103,6 @@ public class Menu {
 	public void kilepes() {
 		System.exit(0);
 	}
+	
 
 }
