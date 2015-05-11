@@ -1,5 +1,6 @@
 package Graphics;
 
+import java.awt.Color;
 import java.awt.event.MouseEvent;
 
 import javax.swing.event.MouseInputAdapter;
@@ -27,7 +28,7 @@ public class Palya_Menedzser extends MouseInputAdapter{
 	 * @param ragacs - Ennyi ragacsa legyen a robotoknak.
 	 * @param olaj - Ennyi olaja legyen a robotoknak.
 	 */
-	public Palya_Menedzser(int magassag, int szelesseg, int robotszam, int kor, int ragacs, int olaj) {
+	public Palya_Menedzser(int magassag, int szelesseg, int robotszam, int kor, int ragacs, int olaj, View view) {
 		this.kor = kor;
 		this.ragacskeszlet = ragacs;
 		this.olajkeszlet = olaj;
@@ -35,7 +36,7 @@ public class Palya_Menedzser extends MouseInputAdapter{
 		this.robocntr = 0;
 		this.cntr = new int[]{0, 0};//0. a cp. 1. kisrobot
 		this.palya = palyaLetreHoz(magassag, szelesseg);
-		this.view = new View();
+		this.view = view;
 		
 	}
 	
@@ -87,17 +88,29 @@ public class Palya_Menedzser extends MouseInputAdapter{
 	 * A pályán kattintanak.
 	 */
 	public void mouseClicked(MouseEvent e) {
-		if(e.paramString().equals("ROBOT_LEP")){
-			Vektor egerPoz = new Vektor(e.getX(), e.getY());//Csak robot léptetéskor kattintunk.
-			palya.vektorFeldolgoz(egerPoz);
-			view.repaint();
-		}
+//		if(e.paramString().equals("ROBOT_LEP")){
+//			Vektor egerPoz = new Vektor(e.getX(), e.getY());//Csak robot léptetéskor kattintunk.
+//			palya.vektorFeldolgoz(egerPoz);
+//			view.repaint();
+//		}
+		System.out.println("ololo");
+		view.setBackground(Color.RED);
+		view.proba(e.getX(), e.getY(), view.getGraphics());
+		System.out.println(e.getX()+" "+ e.getY());
+//		view.repaint();
+	}
+	
+	public void mouseMoved(MouseEvent e) {
+		view.eger(e.getX(), e.getY(), view.getGraphics());
+		System.out.println(e.getX()+" "+ e.getY());
+		view.repaint();
 	}
 
 	/**
 	 * Ha egy robot lépne, akkor egy egység vektor rajzolódik ki és az megy kõrbe a robot körül.
 	 */
 	public void mouseDragged(MouseEvent e) {
+		System.out.println(e.getX()+" "+ e.getY());
 		Vektor egerPoz = new Vektor(e.getX(), e.getY());//Egér jelenleg hol van
 		Vektor[] mozgo = new Vektor[]{//Lehet, tagváltozónak jobb lenne.
 				new Vektor(), //teteje

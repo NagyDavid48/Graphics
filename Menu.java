@@ -78,6 +78,10 @@ public class Menu {
 		frame.add(palya);
 		frame.repaint();
 		frame.setVisible(true);
+		Palya_Menedzser pm = new Palya_Menedzser(10, 16, beallit.getRobotszam(), beallit.getKorszam(), beallit.getRagacsszam(), beallit.getOlajszam(), (View)panel);
+		panel.addMouseListener(pm);
+		panel.addMouseMotionListener(pm);
+		panel.repaint();
 	}
 
 	public void beallítasok() {
