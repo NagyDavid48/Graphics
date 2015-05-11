@@ -17,16 +17,13 @@ public class GRagacs implements RajzolAble {
 
 	
 	GRagacs() throws IOException{
-		kep = ImageIO.read(new File("glue.jpg"));
+		kep = ImageIO.read(new File("Kepek/glue.jpg"));
 	}
 	
 	public void rajzol(Graphics g) {
 		// TODO - implement GRagacs.rajzol
-		if(ragacs.getElet()==0)
-			return;
-		else{
+		if(ragacs.getElet()!=0)
 			g.drawImage(kep, 0, 0, null);
-		}
 	}
 
 	/**

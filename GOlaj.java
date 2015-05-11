@@ -20,7 +20,8 @@ public class GOlaj implements RajzolAble {
 	
 	public void rajzol(Graphics g) {
 		// TODO - implement GOlaj.rajzol
-		throw new UnsupportedOperationException();
+		if(olaj.getElet()!=0)
+			g.drawImage(kep, 0, 0, null);
 	}
 
 	/**

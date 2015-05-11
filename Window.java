@@ -55,9 +55,6 @@ public class Window extends JFrame {
 		beallitasokGomb.setActionCommand("options");
 		kilepesGomb.setActionCommand("exit");
 		
-
-		Image kep = this.getToolkit().getImage("oil.jpg");
-		kep.getGraphics().drawImage(kep, 0, 0, this);
 	}
 
 	public void megjelenites() {

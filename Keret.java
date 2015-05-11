@@ -17,6 +17,9 @@ public class Keret {
 		Window ablak= new Window();
 		
 		ablak.megjelenites();
+
+
+/*********************************************************************/		
 		
 		Command cmd = new Command();
 		String infile = "teszt27_input.txt";
