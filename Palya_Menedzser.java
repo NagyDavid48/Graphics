@@ -134,7 +134,7 @@ public class Palya_Menedzser extends MouseInputAdapter implements ActionListener
 					view.repaint();
 					view.repaint();
 				}else{
-					//palya.vektorFeldolgoz(new Vektor());
+					palya.vektorFeldolgoz(new Vektor());
 					view.repaint();
 				}
 			}
