@@ -10,7 +10,6 @@ import javax.imageio.ImageIO;
 public class GOlaj implements RajzolAble {
 
 	protected Image kep;
-	protected int z;
 	protected Olajfolt olaj;
 
 	

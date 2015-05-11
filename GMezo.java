@@ -10,7 +10,6 @@ import javax.imageio.ImageIO;
 public class GMezo implements RajzolAble{
 
 	protected Image kep;
-	protected int z;
 	protected Mezo mezo;
 
 	GMezo(){
@@ -18,23 +17,23 @@ public class GMezo implements RajzolAble{
 
 	@Override
 	public void rajzol(Graphics g) {
-		if(mezo.getPalyaszakasz()){
-			try {
-				kep = ImageIO.read(new File("Normal.jpg"));
-				g.drawImage(kep, 200, 200, null);
-			} catch (IOException e) {
-				e.printStackTrace();
-				System.out.println("Hiba történt a kép beolvasása folyamán"+e.toString());
+			if(mezo.getPalyaszakasz()){
+				try {
+					kep = ImageIO.read(new File("Normal.jpg"));
+					g.drawImage(kep, 200, 200, null);
+				} catch (IOException e) {
+					e.printStackTrace();
+					System.out.println("Hiba történt a kép beolvasása folyamán"+e.toString());
+				}
+			}else{
+				try {
+					kep = ImageIO.read(new File("Normal.jpg"));
+					g.drawImage(kep, 200, 200, null);
+				} catch (IOException e) {
+					e.printStackTrace();
+					System.out.println("Hiba történt a kép beolvasása folyamán"+e.toString());
+				}
 			}
-		}else{
-			try {
-				kep = ImageIO.read(new File("Normal.jpg"));
-				g.drawImage(kep, 200, 200, null);
-			} catch (IOException e) {
-				e.printStackTrace();
-				System.out.println("Hiba történt a kép beolvasása folyamán"+e.toString());
-			}
-		}
 	}
 	
 	/**

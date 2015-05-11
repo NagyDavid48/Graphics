@@ -10,11 +10,7 @@ import javax.imageio.ImageIO;
 public class GRagacs implements RajzolAble {
 
 	protected Image kep;
-	protected int z;
 	protected Ragacs ragacs;
-	
-	private Graphics g;
-
 	
 	GRagacs() throws IOException{
 		kep = ImageIO.read(new File("Kepek/glue.jpg"));

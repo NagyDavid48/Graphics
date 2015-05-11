@@ -11,15 +11,20 @@ import javax.imageio.ImageIO;
 public class GRobot implements RajzolAble {
 
 	protected Image kep;
-	protected int z;
+	protected int x;
+	protected int y;
 	protected Robot robot;
 
 	GRobot() throws IOException{
 		kep = ImageIO.read(new File("Kepek/robot.jpg"));
+		//x = robot.getMezo().getPoziciovektor().getX();
+		//y = robot.getMezo().getPoziciovektor().getY();
 	}
 	
 	public void rajzol(Graphics g) {
-		g.drawImage(kep, 200, 200, null);
+		//if(robot.getMezo().getPoziciovektor().getX()!=x || robot.getMezo().getPoziciovektor().getY()!=y)
+			g.drawImage(kep, 200, 200, null);
+			//g.drawImage(kep, x, y, null);
 	}
 
 	/**
